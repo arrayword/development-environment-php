@@ -1,0 +1,14 @@
+---
+
+- name: Install Python
+  become: true
+  yum:
+    name:  python
+    state: present
+
+- name: Install MySQL-python
+  become: true
+  yum:
+    name:  MySQL-python-1.2.*
+    state: present
+

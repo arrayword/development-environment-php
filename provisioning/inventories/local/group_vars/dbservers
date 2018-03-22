@@ -1,0 +1,18 @@
+---
+# MariaDBのインストール対象パッケージ
+mariadb_install_packages:
+  - MariaDB-server
+  - MariaDB-client
+
+# データベーススキーマの作成
+mariadb_databases:
+  - name: example
+    collation: utf8_general_ci
+    encoding: utf8
+
+# データベースユーザーの作成
+mariadb_users:
+  - name: example
+    password: foo
+    host: localhost
+    priv: "*.*:ALL"

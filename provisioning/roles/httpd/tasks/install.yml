@@ -1,0 +1,7 @@
+---
+
+- name: Install apache httpd
+  become: true
+  yum:
+    name:  httpd-2.4.*
+    state: present

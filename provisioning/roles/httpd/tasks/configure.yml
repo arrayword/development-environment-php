@@ -1,0 +1,26 @@
+---
+
+- name: Configure httpd.conf
+  become: true
+  template:
+    src: conf/httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+    force: "yes"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Restart httpd
+
+- name: Configure vhosts.conf
+  become: true
+  template:
+    src: conf.d/vhosts.conf.j2
+    dest: /etc/httpd/conf.d/vhosts.conf
+    force: "yes"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Restart httpd
+

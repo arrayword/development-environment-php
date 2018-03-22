@@ -1,0 +1,20 @@
+---
+
+- name: Add repository Jenkins
+  become: true
+  get_url:
+    url:  http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
+
+- name: Add Jenkins repo GPG key.
+  become: true
+  rpm_key:
+    key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+    state: present
+
+- name: Install Jenkins
+  become: true
+  yum:
+    name: jenkins
+    state: present
+  

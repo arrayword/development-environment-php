@@ -1,0 +1,8 @@
+---
+- hosts: ciservers
+  roles:
+    - common
+    - python
+    - ansible
+    - java
+    - jenkins

@@ -1,0 +1,13 @@
+localhost              ansible_connection=local
+
+[scmservers]
+localhost
+
+[ciservers]
+localhost
+
+[webservers]
+localhost
+
+[dbservers]
+localhost

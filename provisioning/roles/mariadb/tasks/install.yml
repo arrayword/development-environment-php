@@ -1,0 +1,20 @@
+---
+
+- name: Add repository MariaDB
+  become: true
+  template:
+    src: yum.repos.d/MariaDB.repo.j2
+    dest: /etc/yum.repos.d/MariaDB.repo
+    force: "yes"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install MariaDB
+  become: true
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ mariadb_install_packages }}"
+  notify:
+    - Restart mariadb

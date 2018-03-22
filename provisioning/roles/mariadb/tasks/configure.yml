@@ -1,0 +1,14 @@
+---
+
+- name: Configure server.cnf
+  become: true
+  template:
+    src: my.cnf.d/server.cnf.j2
+    dest: /etc/my.cnf.d/server.cnf
+    force: "yes"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Restart mariadb
+

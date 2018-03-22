@@ -1,0 +1,11 @@
+---
+
+- name: Create MariaDB users
+  mysql_user:
+    login_user: root
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    priv: "{{ item.priv }}"
+    host: "{{ item.host }}"
+    state: present
+  with_items: "{{mariadb_users}}"

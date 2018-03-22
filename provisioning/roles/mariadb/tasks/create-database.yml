@@ -1,0 +1,10 @@
+---
+
+- name: Create MariaDB databases
+  mysql_db:
+    login_user: root
+    name: "{{ item.name }}"
+    collation: "{{ item.collation }}"
+    encoding: "{{ item.encoding }}"
+    state: present
+  with_items: "{{mariadb_databases}}"

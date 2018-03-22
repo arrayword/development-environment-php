@@ -1,0 +1,19 @@
+---
+
+- name: Restart httpd
+  become: true
+  service:
+    name: httpd
+    state: restarted
+
+- name: Restart mariadb
+  become: true
+  service:
+    name: mariadb
+    state: restarted
+
+- name: Restart jenkins
+  become: true
+  service:
+    name: jenkins
+    state: restarted
