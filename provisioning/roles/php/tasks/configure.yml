@@ -3,8 +3,8 @@
 - name: Configure php.ini
   become: true
   template:
-    src: php/php.ini.j2
-    dest: /etc/opt/remi/php72/php.ini
+    src: etc/php.ini.j2
+    dest: /etc/php.ini
     force: "yes"
     owner: root
     group: root
@@ -14,14 +14,14 @@
 
 - name: Stat 15-xdebug.ini
   stat:
-    path: /etc/opt/remi/php72/php.d/15-xdebug.ini
+    path: /etc/php.d/15-xdebug.ini
   register: xdebug
 
 - name: Configure 15-xdebug.ini
   become: true
   template:
     src: php.d/15-xdebug.ini.j2
-    dest: /etc/opt/remi/php72/php.d/15-xdebug.ini
+    dest: /etc/php.d/15-xdebug.ini
     force: "yes"
     owner: root
     group: root

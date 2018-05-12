@@ -2,6 +2,9 @@
 - hosts: ciservers
   roles:
     - common
+    - git
+    - php
+    - composer
     - python
     - ansible
     - java

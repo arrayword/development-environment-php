@@ -9,18 +9,21 @@ httpd_vhosts:
 
 # PHPのインストール対象パッケージ
 # パッケージ名については以下のコマンドで確認可能
-# yum list | grep php72
+# yum list | grep php
 php_install_packages:
-  - php72
-  - php72-php
-  - php72-php-mbstring
-  - php72-php-pdo
-  - php72-php-mysqlnd
-  - php72-php-xml
-  - php72-php-intl
-  - php72-php-pecl-xdebug
+  - php
+  - php-mbstring
+  - php-pdo
+  - php-mysqlnd
+  - php-xml
+  - php-intl
+  - php-pecl-zip
+  - php-pecl-xdebug
 
 # 仮想マシンホスト側のIPアドレスを設定する
 # Windows環境であれば以下のコマンドで確認可能
 # ipconfig
-php_xdebug_remote_host: 192.168.11.2
+php_xdebug_remote_host: 192.168.11.4
+
+# 使用可能なメモリ量の上限
+php_memory_limit: 1024M
