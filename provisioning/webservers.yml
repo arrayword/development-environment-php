@@ -4,4 +4,7 @@
     - common
     - httpd
     - php
- 
+    - composer
+    - nodejs
+    - git
+

@@ -1,8 +1,0 @@
----
-
-- name: Enable jenkins service
-  become: true
-  service:
-    name: jenkins
-    enabled: "yes"
-    state: started

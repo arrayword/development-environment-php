@@ -20,10 +20,14 @@ php_install_packages:
   - php-pecl-zip
   - php-pecl-xdebug
 
-# 仮想マシンホスト側のIPアドレスを設定する
-# Windows環境であれば以下のコマンドで確認可能
-# ipconfig
-php_xdebug_remote_host: 192.168.11.4
-
 # 使用可能なメモリ量の上限
 php_memory_limit: 1024M
+
+# Composerインストールディレクトリ
+composer_install_dir: /usr/local/bin/
+
+# Composerファイル名
+composer_filename: composer
+
+# Composerバージョン
+composer_version: 1.6.4

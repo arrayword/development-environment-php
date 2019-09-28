@@ -1,7 +1,18 @@
 ---
 
+- name: Download setup script
+  become: true
+  get_url:
+    url:  https://setup.ius.io/
+    dest: /tmp/gitsetup
+
+- name: Run setup script
+  become: true
+  command: "bash /tmp/gitsetup"
+  failed_when: False
+
 - name: Install Git
   become: true
   yum:
-    name:  git
+    name:  git2u
     state: present

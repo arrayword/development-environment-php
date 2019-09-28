@@ -1,6 +1,9 @@
 ; Enable xdebug extension module
 zend_extension=xdebug.so
 
+; Configuration
+; See https://xdebug.org/docs/all_settings
+
 
 ; -----------------------------------------------------------------------------
 ; xdebug.auto_trace
@@ -35,7 +38,7 @@ zend_extension=xdebug.so
 ;
 ; See this article [1] for some more information.
 ;
-; [1] http://drck.me/clicolor-9cr
+; [1] https://drck.me/clicolor-9cr
 ;
 ;
 ;xdebug.cli_color = 0
@@ -244,7 +247,7 @@ zend_extension=xdebug.so
 ;
 ; Only in Xdebug versions > 2.1
 ;
-; Type: string, Default value:
+; Type: string, Default value: 
 ;
 ; This setting determines the format of the links that are made in the display
 ; of stack traces where file names are used. This allows IDEs to set up a
@@ -354,7 +357,7 @@ zend_extension=xdebug.so
 ;     "netbeans://open/?f=%f:%l"
 ;
 ;
-;xdebug.file_link_format =
+;xdebug.file_link_format = 
 
 ; -----------------------------------------------------------------------------
 ; xdebug.force_display_errors
@@ -651,7 +654,7 @@ xdebug.remote_autostart = 1
 ; address does not match xdebug.remote_host.
 ;
 ;
-;xdebug.remote_connect_back = 0
+xdebug.remote_connect_back = 1
 
 ; -----------------------------------------------------------------------------
 ; xdebug.remote_cookie_expire_time
@@ -689,7 +692,7 @@ xdebug.remote_enable = 1
 ; protocol [2]. The DBGp protocol is the only supported protocol.
 ;
 ; [1] http://www.php.net/manual/en/debugger.php
-; [2] http://xdebug.org/docs-dbgp.php
+; [2] https://xdebug.org/docs-dbgp.php
 ;
 ; **Note**: Xdebug 2.1 and later only support 'dbgp' as protocol.
 ;
@@ -706,12 +709,12 @@ xdebug.remote_enable = 1
 ; is enabled.
 ;
 ;
-xdebug.remote_host = {{ php_xdebug_remote_host }}
+;xdebug.remote_host = localhost
 
 ; -----------------------------------------------------------------------------
 ; xdebug.remote_log
 ;
-; Type: string, Default value:
+; Type: string, Default value: 
 ;
 ; If set to a value, it is used as filename to a file to which all remote
 ; debugger communications are logged. The file is always opened in append-mode,
@@ -719,13 +722,13 @@ xdebug.remote_host = {{ php_xdebug_remote_host }}
 ; protection available. The format of the file looks something like:
 ;
 ;     Log opened at 2007-05-27 14:28:15
-;     -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/x ... ight></init>
+;     -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/x ... ight></init>
 ;
 ;     <- step_into -i 1
-;     -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/db ... ></response>
+;     -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/db ... ></response>
 ;
 ;
-;xdebug.remote_log =
+;xdebug.remote_log = 
 
 ; -----------------------------------------------------------------------------
 ; xdebug.remote_mode
@@ -1018,3 +1021,4 @@ xdebug.remote_host = {{ php_xdebug_remote_host }}
 ;
 ;
 ;xdebug.var_display_max_depth = 3
+

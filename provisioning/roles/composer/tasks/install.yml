@@ -1,6 +1,7 @@
 ---
 
 - name: Download installer
+  become: true
   get_url:
     url:  https://getcomposer.org/installer
     dest: /tmp

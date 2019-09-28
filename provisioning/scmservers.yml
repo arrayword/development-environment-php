@@ -1,5 +1,0 @@
----
-- hosts: scmservers
-  roles:
-    - common
-    - git

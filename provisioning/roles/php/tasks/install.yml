@@ -3,16 +3,15 @@
 - name: Add repository Remi
   become: true
   yum:
-    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    name: https://rpms.remirepo.net/enterprise/remi-release-7.rpm
     state: present
 
 - name: Install PHP
   become: true
   yum:
-    name: "{{ item }}"
-    enablerepo: remi-php72
+    name: "{{ php_install_packages }}"
+    enablerepo: remi-php73
     state: present
-  with_items: "{{ php_install_packages }}"
   notify:
     - Restart httpd
   

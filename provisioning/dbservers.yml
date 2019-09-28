@@ -2,4 +2,6 @@
 - hosts: dbservers
   roles:
     - common
-    - mariadb
+    - zlib
+    #- mariadb
+    - mysql

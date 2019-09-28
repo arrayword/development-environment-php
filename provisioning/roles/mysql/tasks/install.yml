@@ -1,0 +1,35 @@
+---
+
+- name: Add repository MySql
+  become: true
+  yum:
+    name: https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+    state: present
+
+- name: Install MySql
+  become: true
+  yum:
+    name: 
+      - mysql-community-server
+      - MySQL-python-1.2.*
+    enablerepo: mysql80-community
+    state: present
+  
+- name: Start mysqld
+  become: true
+  service:
+    name: mysqld
+    enabled: "yes"
+    state: started
+
+- name: Configure my.cnf
+  become: true
+  template:
+    src: etc/my.cnf.j2
+    dest: /etc/my.cnf
+    force: "yes"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Restart mysqld

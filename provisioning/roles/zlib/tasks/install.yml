@@ -1,0 +1,19 @@
+---
+
+- name: Check zlib.
+  become: true
+  stat: 
+    path: /usr/lib/libz.so.1.2.11
+  register: zlib
+
+- name: Install zlib.
+  become: true
+  shell: |
+    cd /tmp
+    wget https://zlib.net/zlib-1.2.11.tar.gz
+    tar -xzf zlib-1.2.11.tar.gz
+    cd zlib-1.2.11/
+    ./configure --shared --prefix=/usr
+    make
+    make install
+  when: not zlib.stat.exists

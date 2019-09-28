@@ -1,0 +1,17 @@
+---
+
+- name: Download setup script
+  become: true
+  get_url:
+    url:  https://rpm.nodesource.com/setup_12.x
+    dest: /tmp
+
+- name: Run setup script
+  become: true
+  command: "bash /tmp/setup_12.x"
+
+- name: Install Node.js
+  become: true
+  yum:
+    name: nodejs
+    state: present

@@ -1,5 +1,3 @@
 ---
-- import_playbook: scmservers.yml
-- import_playbook: ciservers.yml
 - import_playbook: webservers.yml
 - import_playbook: dbservers.yml

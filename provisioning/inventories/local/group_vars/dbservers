@@ -1,4 +1,7 @@
 ---
+###########################
+# MariaDB
+###########################
 # MariaDBのインストール対象パッケージ
 mariadb_install_packages:
   - MariaDB-server
@@ -14,5 +17,24 @@ mariadb_databases:
 mariadb_users:
   - name: example
     password: foo
+    host: localhost
+    priv: "*.*:ALL"
+
+###########################
+# MySql
+###########################
+# rootパスワード
+mysql_root_password: root
+
+# データベーススキーマの作成
+mysql_databases:
+  - name: example
+    collation: utf8_general_ci
+    encoding: utf8
+
+# データベースユーザーの作成
+mysql_users:
+  - name: example
+    password: example
     host: localhost
     priv: "*.*:ALL"

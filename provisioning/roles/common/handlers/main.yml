@@ -12,8 +12,9 @@
     name: mariadb
     state: restarted
 
-- name: Restart jenkins
+- name: Restart mysqld
   become: true
   service:
-    name: jenkins
+    name: mysqld
     state: restarted
+
